@@ -7,7 +7,7 @@ int main(int argc, const char * argv[]) {
     int cantidad=0;
     int j=0;
     char nombre[120];
-    int edad;
+    int canciones;
     printf("Programa de Cd´s de musica!\n");
 
     do {
@@ -21,16 +21,18 @@ int main(int argc, const char * argv[]) {
                  scanf("%d",&cantidad);
                  for(j=0;j<cantidad;j++){
                    printf("Capturando datos del Cd %d\n",j+1);
-                   nuevoAlumno();
+                   nuevoCd();
                  }
                 break;
             case 2:
                 printf("Guardar lista al archivo\n");
-                grabarRegistros(listaAlumnos,indiceAlArreglo);
+                grabarRegistros(listaCd,indiceAlArreglo);
                 break;
             case 3:
                 printf("Leer la lista desde el archivo\n");
-                indiceAlArreglo=registrosEnArchivo();
+                 indiceAlArreglo=registrosEnArchivo();
+                printf("Se encontraron %d registros\n",indiceAlArreglo);
+        		//Lectura del arreglo en memoria
                 leerRegistros(indiceAlArreglo);
                 break;
             case 4:
@@ -39,23 +41,23 @@ int main(int argc, const char * argv[]) {
                 break;
             case 5:
                 printf("Agregar un nuevo Cd a la lista\n");
-                nuevoAlumno();
+                nuevoCd();
                 break;
             case 6:
-                printf("Calcular el promedio del grupo de alumnos\n");
-                calcularPromedio();
+                printf("Calcular el promedio de canciones\n");
+                calcularPromedioCanciones();
                 break;
             case 7:
                 printf("Buscar Cd por artista\n");
                 printf("Introduce el artista a buscar:");
                 scanf("%*c%[^\n]",nombre);
-                buscarPorNombre(nombre);
+                buscarPorNombreArtista(nombre);
                 break;
             case 8:
-                printf("Buscar alumno por edad\n");
-                printf("Introduce la edad a buscar:");
-                scanf("%d",&edad);
-                buscarPorEdad(edad);
+                printf("Buscar cd por numero de canciones\n");
+                printf("Introduce el numero de canciones a buscar:");
+                scanf("%d",&canciones);
+                buscarPorCanciones(canciones);
                 break;
             case 9:
                 printf("Uso futuro\n");
